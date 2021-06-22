@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ :root {--mermaid-font-zoom:1.25em ;} 
+</style><title>软件体系结构复习</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='软件体系结构复习'><span>软件体系结构复习</span></h1><h2 id='绪论'><span>绪论</span></h2><h3 id='描述什么是软件架构'><span>描述什么是软件架构</span></h3><p><strong><span>软件体系结构 = 组件 + 连接件 + 约束</span></strong></p><p><strong><span>组件</span></strong><span>：具有某种功能的可重用的软件模块单元，表示了系统中主要的计算单元和数据存储。 </span></p><p><strong><span>连接件</span></strong><span>：表示了组件之间的交互，简单的连接件有：管道（pipe）、过程调用 （procedure-call）、事件广播（event broadcast）等。复杂的连接件有：客户－服务器 （client-server）通信协议，数据库和应用之间SQL连接等。 </span></p><p><span> </span><strong><span>约束</span></strong><span>：表示了组件和连接件的拓扑逻辑和约束（constraint）。</span></p><h3 id='软件体系结构的研究活动'><span>软件体系结构的研究活动</span></h3><p><span>➢ 软件体系结构的建模与表示（ Architecture Modeling and Documenting） </span></p><p><span>➢ 软件体系结构风格的研究(Software Architecture Styles) </span></p><p><span>➢ 体系结构描述语言(Architecture Description Language,ADL) </span></p><p><span>➢ 软件体系结构的评价方法(Architecture Evaluation) </span></p><p><span>➢ 软件产品线及特定领域软件框架的研究(Product line and DSSA) </span></p><p><span>➢ 动态软件体系结构</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210620164944747.png" referrerpolicy="no-referrer" alt="image-20210620164944747"></p><h3 id='软件体系结构的作用'><span>软件体系结构的作用</span></h3><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210620165149569.png" referrerpolicy="no-referrer" alt="image-20210620165149569"></p><h2 id='数据流体系结构风格'><span>数据流体系结构风格</span></h2><h3 id='定义-1'><span>定义</span></h3><p><span>描述特定领域中软件系统家族的组织方式的惯用模式 (idiomatic paradigm)，反映了领域中众多系统所共有 的结构和语义特性，并指导如何将各个模块和子系统有效 地组织成一个完整的系统</span></p><h3 id='风格分类'><span>风格分类</span></h3><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210620195925127.png" referrerpolicy="no-referrer" alt="image-20210620195925127"></p><h3 id='数据流体系风格'><span>数据流体系风格</span></h3><p><span>数据流体系风格就是数据为主题，数据流到达时工作，无数据时不工作。</span></p><h4 id='特点-1'><span>特点</span></h4><p><span>1.数据 的可用性决定着处理&lt;计算单元&gt;是否执行</span></p><p><span>2.(系统结构由数据 在各处理之间的有序移动决定</span></p><p><span>3.在纯数据流系统中，处理之 间除了数据交换没有任何其他的交互</span></p><h4 id='基本构件-数据处理'><span>基本构件-数据处理</span></h4><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210620200522911.png" referrerpolicy="no-referrer" alt="image-20210620200522911"></p><p><span>构件接口：输入和输出端口</span></p><p><span>计算模型：从输入端口 读数，经过计算/处理，然后写到输出端口</span></p><h3 id='连接件-数据流'><span>连接件-数据流</span></h3><p><span>单向、 通常是异步、有缓冲</span></p><p><span>接口角色：reader 和writer</span></p><p><span>计算模型: 把数据从一个处理的输出端口 传送到另一个处理的输入端口</span></p><h3 id='批处理风格'><span>批处理风格</span></h3><h4 id='定义-2'><span>定义</span></h4><p><span>每个处 理步骤是一个独立的程序</span></p><p><span>每一步必须在前一步结束后才能开始</span></p><p><span>数据必 须是完整的，以整体的方式传递</span></p><h4 id='例子-1'><span>例子</span></h4><p><span>基于eclipse的代码重复检测工具</span></p><h3 id='管道-过滤体系结构风格'><span>管道-过滤体系结构风格</span></h3><h4 id='定义-3'><span>定义</span></h4><p><strong><span>场景</span></strong><span>：数据不停的产生，系统需要若干个功能模块处理数据</span></p><p><strong><span>解决方案：</span></strong></p><p><span>✓ 把系统分解为几个序贯的处理步骤，这些步骤之间通过数据流连接， 一个步骤的输出是另一个步骤的输入； </span></p><p><span>✓ 每个处理步骤由一个过滤器构件(Filter)实现；</span></p><p><span> ✓ 处理步骤之间的数据传输由管道(Pipe)负责。</span></p><p><span>每一个处理步骤都是一个过滤器，都有输入和输出，从管道中读取数据流，经过内部处理后，产生输出数据流并写入管道中。</span></p><h4 id='构件'><span>构件</span></h4><p><strong><span>过滤器（封装一个处理步骤</span></strong><span>）：处理数据流</span></p><p><span>数据源点和数据终止点可以看作时特殊的filter。</span></p><p><span>目标是将源数据变换成目标数据，数据流-&gt;数据流</span></p><p><span>五种变换类型：增，删，转，合并，分解</span></p><p><span>独立性：无上下文信息、不保留状态、对其他过滤器无任何了解</span></p><p><strong><span>连接件</span></strong><span>：管道pipe，连接两个过滤器，一个源，一个目的</span></p><p><span>特点：单向流、可能具有缓冲区、管道形成传输图</span></p><p><span>不同的管道种流动的数据可能具有不同的数据格式，取决于过滤器</span></p><h4 id='过滤器特点'><span>过滤器特点</span></h4><p><span>递增的读取和消费数据，来就被处理，处理了就输出，流方式处理。</span></p><h4 id='例子-2'><span>例子</span></h4><p><span>➢ Compiler (编译器) </span></p><p><span>➢ Unix pipes (Unix管道) </span></p><p><span>➢ Image processing (图像处理) </span></p><p><span>➢ Signal processing (信号处理) </span></p><p><span>➢ Voice and video streaming (声音与图像处理）</span></p><h4 id='优点'><span>优点</span></h4><p><span>使构件具有良好的隐蔽性和高内聚、低耦合的特点，可将整个 系统的输入/输出行为看成多个过滤器的行为的简单合成； </span></p><p><span>➢ 支持软件复用，只要提供适合在两个过滤器之间传送的数据， 任何两个过滤器都可被连接起来 </span></p><p><span>➢ 系统维护和增强系统性能简单，新的过滤器可以添加到现有系 统中来，旧的可以被改进的过滤器替换掉 </span></p><p><span>➢ 允许对一些如吞吐量、死锁等属性的分析 ➢ 支持并行执行：每个过滤器是作为一个单独的任务完成，因此 可与其它任务并行执行。</span></p><h4 id='缺点'><span>缺点</span></h4><p><span>➢ 不适合处理交互的应用 </span></p><p><span>✓在早期对交互应用需求不高的情况下提出 </span></p><p><span>✓当需要增量地显示改变时，这个问题尤为严重 </span></p><p><span>➢ 系统性能不高，并增加了编写过滤器的复杂性 </span></p><p><span>✓数据传输缺乏通用标准，每个过滤器都增加了解析和合 成数据的工作 </span></p><p><span>✓绝大部分处理时间消耗在格式转换上 </span></p><p><span>✓不适用于需要大量共享数据的应用设</span></p><h3 id='批处理vs管道-过滤'><span>批处理VS管道-过滤</span></h3><p><span>1.把任务分解成为一系列固定顺序的计算单元 &amp; 彼此间只通过数据传递交互</span></p><p><span>2.</span><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210620212825277.png" referrerpolicy="no-referrer" alt="image-20210620212825277"></p><h2 id='软件体系结构-调用返回风格'><span>软件体系结构-调用/返回风格</span></h2><h3 id='调用返回风格'><span>调用/返回风格</span></h3><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210620213302818.png" referrerpolicy="no-referrer" alt="image-20210620213302818"></p><h3 id='主程序子程序风格'><span>主程序/子程序风格</span></h3><p><span>1.模块分解</span></p><p><span>2.封装/信息隐藏</span></p><h3 id='数据抽象面向对象'><span>数据抽象/面向对象</span></h3><h4 id='面向对象体系结构的元素'><span>面向对象体系结构的元素</span></h4><p><span>封装：限制对某些信息的访问</span></p><p><span>交互：通过过程调用或类似的协议</span></p><p><span>多态：在运行时选择具体的操作</span></p><p><span>继承：对共享的功能保持唯一的接口</span></p><p><span>复用和维护：利用封装和聚合提高生产力</span></p><h3 id='层次风格'><span>层次风格</span></h3><h4 id='特点-2'><span>特点</span></h4><p><span>每层为上一层提供服务，使用下一层的服务，只能见到与自己邻接的 层 – 适当时候(必不得已的时候)，可以允许一定的越层操作</span></p><p><span> • 大的问题分解为若干个渐进的小问题，逐步解决，隐藏了很多复杂度 </span></p><p><span>• 修改一层，最多影响两层，而通常只能影响上层。接口稳固，则谁都 不影响 </span></p><p><span>• 上层必须知道下层的身份，不能调整层次之间的顺序 • 层层相调，影响性能</span></p><h3 id='客户端服务器风格'><span>客户端/服务器风格</span></h3><h4 id='两层cs结构'><span>两层C/S结构</span></h4><p><span>基于资源不对等，且为了实现共享二提出的，分为三个组成部分：数据库服务器、客户应用程序和网络，服务器负责数据管理，客户机完成客户的交互任务。这样的话，对客户及的配置要求较高，客户端的程序设计复杂，因为直接访问服务器数据库，数据安全性差，用户界面风格不一，使用繁杂，软件维护与升级困难，每个客户机上的软件都需要维护。</span></p><h4 id='三层cs结构'><span>三层C/S结构</span></h4><p><span>与两层结构相比，只增加了一个应用服务器。</span></p><p><span>整个应用逻辑驻留在应用服务器上，只有表示层存在于客 户机上</span></p><p><span>应用功能分为表示层（客户机）、功能层、数据层三层</span></p><p><span>– 表示层是应用的用户接口部分。通常使用图形用户界面</span></p><p><span> – 功能层是应用的主体，实现具体的业务处理逻辑 </span></p><p><span>– 数据层是数据库管理系统。</span></p><p><span>– 以上三层逻辑上独立。 </span></p><p><span>– 通常只有表示层配置在客户机中</span></p><h4 id='bs结构浏览器服务器风格）'><span>B/S结构（浏览器/服务器风格）</span></h4><p><span>• B/S体系结构是三层C/S体系结构的特例</span></p><p><span> • 客户端有http浏览器即可 – 为增强功能，往往还需要安装flash、jvm及一些专用插件 </span></p><p><span>• 使用标准http/https协议，省却很多麻烦</span></p><p><span> • 只能“拉”，不能“推” •</span></p><p><span> 客户之间的通信只能通过服务器中转 </span></p><p><span>• 对客户机资源和其他网络资源的利用受限 </span></p><p><span>• B/S结构的安全性较难控制(SQL注入攻击…) </span></p><p><span>• B/S结构的应用系统在数据查询等相应速度上，要远远低于C/S体系结构 </span></p><p><span>• 服务器的负荷大，客户机的资源浪费 – 用jvm、flash、ActiveX等客户端计算技术解决</span></p><h2 id='体系结构风格'><span>体系结构风格</span></h2><h3 id='数据为中心的体系结构风格'><span>数据为中心的体系结构风格</span></h3><p><span>定义：以数据为中心的风格架构涉及共享信息传递的数据源方法</span></p><p><span>比如：剪贴板，不停的copy暂存，不停的paste读取出数据</span></p><h3 id='仓库体系结构风格'><span>仓库体系结构风格</span></h3><p><span>仓库是存储和维护数据的中心场所</span></p><p><span>组件：1.中心数据结构，表示当前数据的状态</span></p><p><span>2.一组对中心数据进行操作的独立构件</span></p><p><span>连接件：仓库与独立构件之间的交互</span></p><p><span>两种交互方式：1.数据库方式——输入流中的事务类型触发需要执行的过程。</span></p><p><span>2.黑板结构：中心数据结构的当前状态触发并选择需要执行的过程</span></p><p><span>核心问题是建立、扩大和维护一个复杂的中央信息体。</span></p><p><span>典型应用场景：</span></p><p><span>✓ 数据处理（数据处理），主要是由于需要从传统数据库构建业务决策系统。</span></p><p><span>✓ 软件开发环境（软件开发环境），主要由表示和操作程序和设计的需要驱动。</span></p><h4 id='应用实例-1'><span>应用实例</span></h4><p><span>数据库  传统编译器结构：批处理/管道-过滤器 传统带符号表编译器结构  现代的规范编译器结构 仓库形式的编译器结构 基于仓库风格的软件研发环境</span></p><h3 id='黑板体系结构风格'><span>黑板体系结构风格</span></h3><h4 id='基本结构'><span>基本结构</span></h4><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210621152457556.png" referrerpolicy="no-referrer" alt="image-20210621152457556"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210621152528665.png" referrerpolicy="no-referrer" alt="image-20210621152528665"></p><h4 id='数据结构'><span>数据结构</span></h4><p><span>1.全局数据库，用来存储数据、传递信息，包含解域的全部状态</span></p><p><span>2.解决问题过程中的状态数据，一层次形式组织起来</span></p><p><span>3.知识源大队黑板进行修改，逐渐找到问题的解</span></p><p><span>4.各知识源之间的通讯和交互只通过黑板进行</span></p><h4 id='知识源'><span>知识源</span></h4><p><span>知识源是存储解决问题的知识和方法的地方，分别存放且相互独立，通过黑板进行通讯。条件-动作的形式存在。</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210621153341450.png" referrerpolicy="no-referrer" alt="image-20210621153341450"></p><h4 id='控制器'><span>控制器</span></h4><p><span>作用：时刻监视黑板的状态变化，对黑板的当前状态进行判断和评价，当黑板的状态满足知识源的出发条件后，知识源被控制器触发并进行计算，将结果更新到黑板上。更新会导致其他知识源继续参与，直到问题解决。</span></p><p><span>应用：</span></p><h4 id='黑板体系结构组成'><span>黑板体系结构组成</span></h4><p><span>➢ 黑板模型求解问题的推理机构，由监督程序和调度程序组成。 ➢ 监督程序根据黑板的状态变化激活相关知识源 </span></p><p><span>➢ 调度程序选择最合适的知识源来执行，用执行结果修改黑板状态。 </span></p><p><span>➢ 用来控制和协调所有的知识源，使其协同的解决问题； </span></p><p><span>➢ 了解各个知识源的能力，实时决策解决问题的步骤；</span></p><p><span>应用：HEARSAY-II (自然语言处理系统，系统输入是自然语言的语音信号，经 过语音音节、词汇、句法和语义分析后，获得用户对数据库的查询请求)。</span></p><h2 id='虚拟机风格'><span>虚拟机风格</span></h2><p><span>虚拟机风格分为解释器和规则系统</span></p><h4 id='解释器'><span>解释器</span></h4><p><span>模拟硬件非固有的功能</span></p><h5 id='解释器风格'><span>解释器风格</span></h5><p><span>问题：此模式适用于无法直接使用最适合执行解决方案的语言或机器的应用程序。</span>
+<span>该模式也适用于核心</span></p><p><span>问题是定义表达解决方案的符号，例如作为脚本。</span>
+<span>有时会在链中使用解释器，在一系列阶段中将所需的语言/机器翻译成可用的语言/机器。</span></p><p><span>• 上下文：解释器通常被设计为弥合所需机器或语言与执行环境已支持的某些（可能是虚拟的）机器或语言之间的差距</span></p><p><strong><span>– 系统模型</span></strong><span>：虚拟机</span></p><p><strong><span>– 组件</span></strong><span>：一个状态机（执行引擎）和三个存储器（执行引擎的当前状态、正在解释的程序、正在解释的程序的当前状态）</span></p><p><span>– </span><strong><span>连接器</span></strong><span>：数据访问和过程调用</span></p><p><strong><span>– 控制结构：</span></strong><span>通常是执行引擎的状态转换；</span>
+<span>用于选择解释内容的输入驱动</span></p><p><span>• 显着变体：专家系统通常作为代表专业知识的规则或产品集合的解释器来实现。</span>
+<span>由于产生式需要复杂的选择规则，专门形式的解释器已经发展</span></p><h5 id='解释器优势'><span>解释器优势</span></h5><p><span>• 功能：</span></p><p><span>– 可以模拟非本地功能</span></p><p><span>• 测试：</span></p><p><span>– 可以模拟“灾难”模式（例如对于安全关键应用）</span></p><p><span>• 灵活性：</span></p><p><span>– 非常通用的工具</span></p><h5 id='劣势'><span>劣势</span></h5><p><span>效率：</span></p><p><span>– 比硬件慢得多</span></p><p><span>– 比编译系统慢得多</span></p><p><span>• 测试：</span></p><p><span>– 需要验证的附加软件层</span></p><h5 id='用途'><span>用途</span></h5><p><span>• 解释型语言 – VB、Javascript、VBScript、HTML、Java字节码、Matlab – 脚本、配置文件</span></p><p><span> • 通信协议 </span></p><p><span>• 用户输入 – 游戏中的组合按键</span></p><h4 id='规则系统'><span>规则系统</span></h4><p><span>解释器专门化</span></p><h5 id='规则系统特征'><span>规则系统特征</span></h5><p><span>要执行的代码（知识库）</span></p><p><span>• 解释引擎（规则解释器）</span></p><p><span>• 控制解释器的状态（规则/数据选择）</span></p><p><span>• 代码的当前状态（工作内存）</span></p><h5 id='实际的规则引擎-drools'><span>实际的规则引擎-drools</span></h5><p><span>Drools是Redhat公司JBoss业务逻辑智能模块</span></p><p><span>Drools是处理规则的专家系统</span></p><p><span>• 声明式编程 – 规则引擎允许你说“做什么”，而不是“怎样去做” </span></p><p><span>• 规则系统能解决非常困难的难题</span></p><p><span> • 逻辑和数据分离 </span></p><p><span>• 快捷和灵活 </span></p><p><span>• 知识集中化 </span></p><p><span>• 工具集成 </span></p><p><span>• 良好的解释机制</span></p><p><span> • 易于理解的规则</span></p><p><span>产生式规则引擎：产生于系统庞大，业务繁杂，业务规则经常改变，24小时服务，业务同一管理，降低系统维护升级成本。</span></p><p><span>许多产品规则系统的大脑实际上是一个推理引擎，用于匹配事实和规则，当匹配被找到的时候，规则对应的动作会被触发，动作会改变事实的状态或者在应用上执行一些“外部”动作。</span></p><h2 id='软件体系结构-事件系统'><span>软件体系结构-事件系统</span></h2><h3 id='事件'><span>事件</span></h3><p><span>能够激活对象功能的动作。当发生这种动作后将给所涉及对象发送一个消息，对象便可执行相应的功能。</span></p><h3 id='事件系统'><span>事件系统</span></h3><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622085116631.png" referrerpolicy="no-referrer" alt="image-20210622085116631"></p><h4 id='隐式调用'><span>隐式调用</span></h4><h5 id='特点-3'><span>特点</span></h5><p><span>✓ 事件的触发者并不知道哪些构件会被这些事件影响，相互保持独立。 </span></p><p><span>✓ 不能假定构件的处理顺序，甚至不知道哪些过程会被调用。 </span></p><p><span>✓ 各个构件之间彼此之间无连接关系，各自独立存在，通过对事件的发布和注 册实现关联。</span></p><h5 id='基本结构与工作原理'><span>基本结构与工作原理</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622091957959.png" referrerpolicy="no-referrer" alt="image-20210622091957959"></p><p><span>事件源、事件管理器</span></p><h5 id='基本构件'><span>基本构件</span></h5><p><span>事件系统的基本构件：过程或函数，充当事件源或事件处理器的角色</span></p><p><span>事件</span></p><h5 id='连接机制'><span>连接机制</span></h5><p><span>事件系统的连接件：事件过程绑定</span></p><p><span>过程（事件处理器）向特定的事件进行注册</span></p><p><span>构件（事件源）发布事件</span></p><p><span>当某些事件被发布时，向其注册的过程被隐式调用</span></p><p><span>调用的次序是不确定的</span></p><p><strong><span>在某些情况下，一个事件可能触发其他时间，形成事件链</span></strong></p><h5 id='应用实例-2'><span>应用实例</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622094052279.png" referrerpolicy="no-referrer" alt="image-20210622094052279"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622094107313.png" referrerpolicy="no-referrer" alt="image-20210622094107313"></p><h4 id='事件系统派遣机制-调度机制'><span>事件系统派遣机制-调度机制</span></h4><p><span>当事件发生时，意向此事件注册过的过程被激发并执行。</span></p><p><span>有两种派遣策略：1.无独立调度派遣模块的事件管理器</span></p><p><span>2.带有独立派遣模块的事件管理器</span></p><h5 id='无独立调度模块的事件系统'><span>无独立调度模块的事件系统</span></h5><p><span>➢ This module is usually called Observable/Observer (被观察者/观 察者).</span></p><p><span>➢ Each module allows other modules to declare interest in  events that they are sending. (每一个模块都允许其他模块向自己 所能发送的某些消息表明兴趣) </span></p><p><span>➢ Whenever a module sends an event, it sends that event to  exactly those modules that registered interest in that event. (当 某一模块发出某一事件时，它自动将这些事件发布给那些曾经向自己 注册过此事件的模块</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622094621751.png" referrerpolicy="no-referrer" alt="image-20210622094621751"></p><h5 id='有独立事件派遣模块的事件系统'><span>有独立事件派遣模块的事件系统</span></h5><p><span>事件派遣模块是负责接收到来的事件并 派遣它们到其它模块。</span></p><p><span>派遣方式：</span></p><p><span>➢ 全广播式(All broadcasting) ：派遣模 块将事件广播到所有的模块，但只有感 兴趣的模块才去取出事件并触发自身的 行为；</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622094818657.png" referrerpolicy="no-referrer" alt="image-20210622094818657"></p><p><span> ➢ 选择广播式(Selected broadcasting) ： 派遣模块将事件送到那些已经注册的模 块中。</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622094835578.png" referrerpolicy="no-referrer" alt="image-20210622094835578"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622094920445.png" referrerpolicy="no-referrer" alt="image-20210622094920445"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622095103813.png" referrerpolicy="no-referrer" alt="image-20210622095103813"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622095118325.png" referrerpolicy="no-referrer" alt="image-20210622095118325"></p><p><strong><span>发布-订阅事件过期才会删除，点对点时消费完就删除</span></strong></p><h5 id='实例'><span>实例</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622095445346.png" referrerpolicy="no-referrer" alt="image-20210622095445346"></p><h2 id='软件体系结构描述方法'><span>软件体系结构描述方法</span></h2><h3 id='软件体系结构描述'><span>软件体系结构描述</span></h3><h4 id='概念-1'><span>概念</span></h4><p><span>软件体系结构由一定形式的结构化元素组成，即是构件的集合。包括</span><strong><span>处理构件、数据构件和连接 构件</span></strong><span>。处理构件负责加工数据，数据构件代表被加工的信息，连接构件则负责组合连接不同的构件。</span></p><p><span>软件体系结构不仅是系统的蓝图，也是开发改系统项目的蓝图。 </span></p><p><span>◆ 它定义了工作分配。 </span></p><p><span>◆ 它是质量属性的主要载体。 </span></p><p><span>◆ 它是早期分析的最佳工具。</span></p><p><span>◆ 它是部署后维护和挖掘的关键。</span></p><p><span>◆ 描述软件系统结构是创建体系结构的最重要步骤。 </span></p><p><span>◆ 无论目前还是20年后，软件体系结构文档都能代表软件体系结构的设计思路</span></p><h4 id='作用'><span>作用</span></h4><p><span>描述软件体系结构是理解体系结构设计思想、交流如何使用体系结构指导系统构建的基础。</span></p><h4 id='时机'><span>时机</span></h4><p><span>当我们浏览自己公司的网站、与客户互动、或进行软件体系结构评估，都需要获得一份关于软件 体系结构的描述文档，作为交流的凭借。</span></p><h4 id='方式'><span>方式</span></h4><p><span>工业界采用的传统描述方式存在一定的局限性，而专业的软件体系结构描述文档则可解决这一问题。</span></p><h4 id='建立描述文档的基本原则'><span>建立描述文档的基本原则</span></h4><p><span>◆ 1.从读者的角度写。 </span></p><p><span>◆ 2.避免不必要的重复。</span></p><p><span> ◆ 3.避免歧义。 </span></p><p><span>◆ 4.使用标准组织结构。</span></p><p><span> ◆ 5.记录理由。 </span></p><p><span>◆ 6.保持文档时效性但不是频繁更新 （有限的稳定性）。 </span></p><p><span>◆ 7.审查文档是否符合需求</span></p><h3 id='软件体系结构建模'><span>软件体系结构建模</span></h3><h4 id='视图'><span>视图</span></h4><h5 id='概念-2'><span>概念</span></h5><p><span>➢ “视图”的概念为我们提供了描述体系结构的原则： </span></p><p><span>◆ 记录相关的意见 </span></p><p><span>◆ 然后添加适用于多个视图的信息 </span></p><p><span>◆ 从而将观点联系在一起 </span></p><p><span>➢ 架构元素–软件或硬件中存在的一组实际元素 </span></p><p><span>➢ 视图–由系统相关者编写和读取的一组连贯的 架构元素的表示</span></p><hr /><p><span>➢ 视图是一组架构元素及其关联关系的表示。 </span></p><p><span>➢ 但并非涵盖所有架构元素。 </span></p><p><span>➢ 视图绑定了体系结构描述时感兴趣的元素类型和关系类 型，并显示了它们。</span></p><p><span>➢ 视图是一种复杂的管理方法。</span></p><p><span> ➢ 每个视图都可以回答有关体系结构的不同问题</span></p><p><span> ◆ 主要执行单元和数据存储是什么？ </span></p><p><span>◆ 其他软件如何使用该软件？ </span></p><p><span>◆ 数据是如何在系统中流动的？ </span></p><p><span>◆ 如何将软件部署到硬件上？</span></p><h5 id='类型'><span>类型</span></h5><p><span>➢ 分解视图–显示与“关联的子模块”关系相关联的模块 </span></p><p><span>➢ 使用视图–显示与“使用”关系相关联的模块 （即，一个模块使用另一模块提供的服务） </span></p><p><span>➢ 分层视图–显示被划分为相关和连贯功能的模块组。 每个组代表整体结构中的一个层。 </span></p><p><span>➢ 类/泛化视图–显示称为类的模块，这些模块通过关系的 “继承”或“实例”关联</span></p><p><span>➢ 进程视图–显示通过通信、同步和排除操作连接的进程或线程 </span></p><p><span>➢ 并发视图–显示组件和连接器，其中连接器代表“逻辑线程” </span></p><p><span>➢ 共享数据（存储库）视图–显示创建、存储和访问持久数据的组件 和连接器 </span></p><p><span>➢ 客户端-服务器视图–显示协作的客户端和服务器以及它们之间的 连接器（即它们共享的协议和消息）</span></p><p><span>➢ 部署视图–显示软件元素及其对硬件和通信元素的分配 </span></p><p><span>➢ 实施视图–显示开发、集成和配置控制环境中的软件元 素及其到文件结构的映射 </span></p><p><span>➢ 工作分配视图–显示模块及其如何分配给负责实施和集 成它们的开发团队</span></p><h5 id='基于视图的体系结构建模规范'><span>基于视图的体系结构建模规范</span></h5><p><span>➢ 软件应用程序体系结构的规范称为体系结构描述。 </span></p><p><span>➢ 在IEEE 1471的术语中，系统具有体系结构，通过体系结构说明书来描述。</span></p><p><span>◆ 架构描述选择一个或多个视点。</span></p><p><span> ◆ 每个视点包含了一个或多个相关的视图</span></p><p><span> ◆ 视图由一个或多个模型组成，并集中一个视点。 </span></p><p><span>◆ 架构描述由一个或多个视图组成。</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622104618926.png" referrerpolicy="no-referrer" alt="image-20210622104618926"></p><h6 id='41视图'><span>4+1视图</span></h6><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622104744732.png" referrerpolicy="no-referrer" alt="image-20210622104744732"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622104758994.png" referrerpolicy="no-referrer" alt="image-20210622104758994"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622104811877.png" referrerpolicy="no-referrer" alt="image-20210622104811877"></p><h6 id='uml视图'><span>UML视图</span></h6><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622104919311.png" referrerpolicy="no-referrer" alt="image-20210622104919311"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105012760.png" referrerpolicy="no-referrer" alt="image-20210622105012760"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105033813.png" referrerpolicy="no-referrer" alt="image-20210622105033813"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105049108.png" referrerpolicy="no-referrer" alt="image-20210622105049108"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105103489.png" referrerpolicy="no-referrer" alt="image-20210622105103489"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105118471.png" referrerpolicy="no-referrer" alt="image-20210622105118471"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105135262.png" referrerpolicy="no-referrer" alt="image-20210622105135262"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105149987.png" referrerpolicy="no-referrer" alt="image-20210622105149987"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105205470.png" referrerpolicy="no-referrer" alt="image-20210622105205470"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105217651.png" referrerpolicy="no-referrer" alt="image-20210622105217651"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105230485.png" referrerpolicy="no-referrer" alt="image-20210622105230485"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105244855.png" referrerpolicy="no-referrer" alt="image-20210622105244855"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105258280.png" referrerpolicy="no-referrer" alt="image-20210622105258280"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105313712.png" referrerpolicy="no-referrer" alt="image-20210622105313712"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622105328417.png" referrerpolicy="no-referrer" alt="image-20210622105328417"></p><h2 id='质量属性及其策略'><span>质量属性及其策略</span></h2><h3 id='质量属性的含义'><span>质量属性的含义</span></h3><p><span>属于非功能性需求，并不被功能所决定</span></p><p><span>✓ 实现功能特性必须给构成系统中的各个部分（模块） 赋予正确的职责、正确的资源和正确的调度顺序 </span></p><p><span>✓ 先实现功能，再谈质量属性</span></p><hr /><p><span>不同的软件项目，关注不同的质量属性---影响体系结构风格的选择</span></p><p><span>质量属性之间可能互相抑制---优先保证优先级的质量属性</span></p><p><span>必须结合设计、实现、部署3方面才能满足---缺一不可，在体系结构层面，就要考虑质量属性的实现</span></p><hr /><p><span>常见的质量属性：</span></p><p><span>➢可用性（Availability） </span></p><p><span>➢可修改性（Modifiability） </span></p><p><span>➢性能（Performance） </span></p><p><span>➢安全性（Security） </span></p><p><span>➢可测试性（Testability） </span></p><p><span>➢易用性（Usability）</span></p><h3 id='质量属性场景'><span>质量属性场景</span></h3><p><span>➢ 质量属性场景的6个组成部分 </span></p><p><span>➢ 刺激源（source）：谁造成的刺激 </span></p><p><span>➢ 刺激（stimulus）：一个影响系统的情况 </span></p><p><span>➢ 制品（artifact）：系统被影响的部分 </span></p><p><span>➢ 环境（environment）：刺激发生时系统所处的状态 </span></p><p><span>➢ 响应（response）：刺激所产生的结果 </span></p><p><span>➢ 响应衡量指标（response measure）：如何评估响应</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622113810587.png" referrerpolicy="no-referrer" alt="image-20210622113810587"></p><h3 id='可用性'><span>可用性</span></h3><h5 id='定义-4'><span>定义</span></h5><p><span>✓ 当用户使用系统时，系统可用的概率 </span></p><p><span>✓ 提前确定的停机维护不计入</span></p><h5 id='衡量指标'><span>衡量指标</span></h5><p><span>✓ 可用（或故障）时间百分比 </span></p><p><span>✓ 修复故障所需的时间 </span></p><p><span>✓ 平均无故障时间</span></p><h5 id='可用性场景'><span>可用性场景</span></h5><p><span>➢刺激源 </span></p><p><span>✓ 故障的迹象（来自内部或外部） </span></p><p><span>➢刺激 </span></p><p><span>✓ 系统出错 </span></p><p><span>✓ 系统崩溃（反复出错） </span></p><p><span>✓ 给出结果不准时（早或晚） </span></p><p><span>✓ 给出错误结果</span></p><p><span>➢制品 </span></p><p><span>✓ 计算 or 存储 or 网络传输 </span></p><p><span>➢环境 </span></p><p><span>✓ 正常状态 or “亚健康”状态</span></p><p><span>➢响应 </span></p><p><span>✓ 记录日志（错误报告），回传给厂家 </span></p><p><span>✓ 通知管理员或其他系统</span></p><p><span> ✓ 关闭系统，系统在维修期间不可用 </span></p><p><span>➢响应衡量指标 </span></p><p><span>✓ 故障时间百分比、修复故障所需时间、平均无故障时 间……</span></p><h5 id='提升可用性的策略'><span>提升可用性的策略</span></h5><h6 id='策略'><span>策略</span></h6><p><span>➢满足特定质量属性的具体设计手段 </span></p><p><span>➢是体系结构风格的基本单元</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622144123257.png" referrerpolicy="no-referrer" alt="image-20210622144123257"></p><h6 id='概述-1'><span>概述</span></h6><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622144252551.png" referrerpolicy="no-referrer" alt="image-20210622144252551"></p><h6 id='故障检测'><span>故障检测</span></h6><p><span>➢ Ping/echo ➢ 监控组件不定期向被监控组件发出ping消息，并根据收 到的echo消息（是否收到、延时）做出响应</span></p><p><span>➢ Heartbeat（心跳） ➢ 被监控组件定期向监控组件发出心跳消息 ➢ 在节点间保持周期性的心跳信号以检测各个节点的状态。若连续未收到的 心跳信号到了一定的数目，就认为相应的系统已经出现故障。</span></p><p><span>➢ Exceptions（异常） ➢ 抛出 + 捕获 + 处理 ➢ 需要编程语言支持</span></p><h6 id='故障恢复'><span>故障恢复</span></h6><p><strong><span>➢ 投票</span></strong><span> </span></p><p><span>➢ 多个冗余的组件，用统一或不同的算法来完成同一个任务。如果计算结 果不同，则少数服从多数</span></p><p><span>➢ 为降低同时出错的概率，多个组件可以由不同的开发团队在不同的软、 硬件平台上开发</span></p><p><span>➢ 主动冗余 ➢ A、B服务器完成同样的运算（A和B的状态时刻保持一致），平时只取 A算出的结果 ➢ 当A出现故障时，系统可以极快地切换到B</span></p><p><span> ➢ 被动冗余 ➢ A服务器完成运算后的一定时间内把自身状态告知B，B再把自身状态更 新为A的状态。 ➢ 当A出现故障时，首先需要确认B的状态是最新的。</span></p><p><span>➢ 在重新上线前，都需要做状态的重新同步</span></p><p><span>➢ 内测 ➢ 开发人员修正bug，并在内部进行测试，确认无误后再发布补丁</span></p><p><span>➢ 检查点/回滚 ➢ 定期保存，便于恢复</span></p><h6 id='故障避免'><span>故障避免</span></h6><p><span>➢服务下线 ➢惹不起，躲得起 ➢如果明确知道即将遭到毁 灭性攻击，不如主动下线</span></p><p><span>➢ 事务（Transaction） ➢ 多个操作必须全部完成 ➢ 案例：张三转账给李四包括2个 操作（减少张三账户余额、增加 李四账户余额），如果有任意一 个操作失败，则另一个也必须撤 销</span></p><p><span>➢ 进程监控 ➢ Windows任务管理器</span></p><h3 id='可修改性'><span>可修改性</span></h3><h4 id='含义-1'><span>含义</span></h4><h5 id='概述-2'><span>概述</span></h5><p><span>➢关注点 ✓修改的成本 ✓系统的哪些部分被修改 ✓修改发生的时间 ✓修改由谁来进行</span></p><p><span>➢衡量指标 ✓修改完成的时间 ✓修改所花的人力成本 ✓修改所花的经济成本</span></p><h5 id='可修改性场景'><span>可修改性场景</span></h5><p><span>➢刺激源 ✓谁进行的修改（开发者/管理员/用户）</span></p><p><span>➢刺激 ✓要进行的具体修改</span></p><p><span>➢制品 ✓ 修改系统的功能 or UI or 交互的其他系统？</span></p><p><span>➢环境 ✓ 在什么时间进行的修改？设计期间 or 开发期 间 or 运行期间？ ✓ 修改的时间越迟，越不利</span></p><p><span>➢响应 ✓ 操作人员要理解如何修改、进行修改操作、测 试、部署</span></p><p><span>➢响应衡量指标 ✓ 时间、成本</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622145305746.png" referrerpolicy="no-referrer" alt="image-20210622145305746"></p><h4 id='可修改性的提升策略'><span>可修改性的提升策略</span></h4><h5 id='概述-3'><span>概述</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622145356001.png" referrerpolicy="no-referrer" alt="image-20210622145356001"></p><h5 id='限制修改范围'><span>限制修改范围</span></h5><p><span>➢ 模块高内聚、低耦合 ➢ 尽量把对程序的修改控制在一个模块内 ➢ 可以借助框架、中间件</span></p><hr /><p><span>➢ 考虑到可能会发生的修改 ➢ 有助于评估模块间责任的划分 ➢ 让一个点的修改只影响一个模块 ➢ 避免完全无关的多个修改会影响同一个模</span></p><hr /><p><span>➢ 让模块通用 ➢ “解释器”风格的思路</span></p><hr /><p><span>➢ 隐藏信息 ➢ 面向对象机制中的可访问性（public/private）</span></p><hr /><p><span>➢ 维持接口不变 ➢ 在接口不变的情况下，接口连接的双方可以独立变化</span></p><hr /><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622145702208.png" referrerpolicy="no-referrer" alt="image-20210622145702208"></p><hr /><p><span>➢ 使用中介 ➢ 数据中介：共享数据的风格 ➢ 服务中介：设计模式中的bridge、factory method等模式</span></p><hr /><p><span>➢ 命名服务器（name server） ➢ 查询所需资源 / 对象的位置，解决位置依赖</span></p><hr /><p><span>➢ 按需创建实例 ➢ 借助设计模式中的创建型模式</span></p><hr /><h5 id='延迟绑定时间'><span>延迟绑定时间</span></h5><p><span>➢ 配置文件 ➢ 修改配置文件，而不用修改代码</span></p><hr /><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622145912418.png" referrerpolicy="no-referrer" alt="image-20210622145912418"></p><hr /><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150101920.png" referrerpolicy="no-referrer" alt="image-20210622150101920"></p><h3 id='性能'><span>性能</span></h3><h4 id='含义-2'><span>含义</span></h4><h5 id='概述-4'><span>概述</span></h5><p><span>➢关注点 ✓ 系统响应事件的速度 ✓ 和事件的数量和到达模式有关</span></p><p><span>➢事件的来源 ✓ 用户的请求、本系统内部、本系统外部</span></p><p><span>➢ 事件到达模式 ✓ 随机的 ✓ 在特定时间尺度（日、月、学期、年）有规律的</span></p><h5 id='性能场景'><span>性能场景</span></h5><p><span>➢刺激源 ✓ 可能来自系统内部或外部</span></p><p><span>➢刺激 ✓ 事件到来（需要响应）</span></p><p><span>➢制品 ✓ 系统所提供的服务</span></p><p><span>➢环境 ✓ 系统可能处于不同的模式（正常 / 紧急 / 超载）</span></p><p><span>➢ 响应 ✓ 系统处理到来的事件，可能会导致状态的变化</span></p><p><span>➢ 响应衡量指标 ✓ 处理事件所花的时间 ✓ 单位时间内处理事件的数目 ✓ 处理的错误率/丢失率</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150513473.png" referrerpolicy="no-referrer" alt="image-20210622150513473"></p><h4 id='提升性能的策略'><span>提升性能的策略</span></h4><h5 id='概述-5'><span>概述</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150544433.png" referrerpolicy="no-referrer" alt="image-20210622150544433"></p><h5 id='资源的需求'><span>资源的需求</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150631844.png" referrerpolicy="no-referrer" alt="image-20210622150631844"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150649352.png" referrerpolicy="no-referrer" alt="image-20210622150649352"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150707615.png" referrerpolicy="no-referrer" alt="image-20210622150707615"></p><h5 id='资源的管理'><span>资源的管理</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150804000.png" referrerpolicy="no-referrer" alt="image-20210622150804000"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150816783.png" referrerpolicy="no-referrer" alt="image-20210622150816783"></p><h5 id='资源的仲裁'><span>资源的仲裁</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150841464.png" referrerpolicy="no-referrer" alt="image-20210622150841464"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622150855132.png" referrerpolicy="no-referrer" alt="image-20210622150855132"></p><h3 id='安全性'><span>安全性</span></h3><h4 id='含义-3'><span>含义</span></h4><h5 id='概述-6'><span>概述</span></h5><p><span>➢ 关注点 ✓ 在保证合法用户使用系统的前提下，抵抗对系统的攻击</span></p><p><span>➢ 攻击（威胁） ✓ 试图突破系统安全性防护的尝试</span></p><p><span>➢ 安全性的不同方面 ✓ 不可否认性 ✓ 私密性✓ 完整性 ✓ 保证性✓ 可用性 ✓ 审计（为了重建）</span></p><h5 id='安全性场景'><span>安全性场景</span></h5><p><span>➢ 刺激源 ✓ 攻击可能由人或其他系统发起</span></p><p><span>➢ 刺激 ✓ 对系统的攻击（或试图突破系统安全保护） ✓ 常见形式：窃取或修改信息、获取超权限的服务、降低系统 可用性</span></p><p><span>➢ 制品 ✓ 系统所提供的服务或系统中的数据</span></p><p><span>➢ 环境 ✓ 系统可能处于不同的情况下（联网/未联网、在线/下线、 在防火墙内/外）</span></p><p><span>➢ 响应 ✓ 合法用户正常使用，拒绝非法用户的使用 ✓ 对攻击有威慑</span></p><p><span>➢ 响应衡量指标 ✓ 发起攻击的难度 ✓ 从攻击中恢复的难度</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622151204335.png" referrerpolicy="no-referrer" alt="image-20210622151204335"></p><h4 id='提升安全性的策略'><span>提升安全性的策略</span></h4><h5 id='概述-7'><span>概述</span></h5><p><span>➢方向1：抵抗攻击</span></p><p><span>➢方向2：检测攻击</span></p><p><span>➢方向3：从攻击中恢复</span></p><h5 id='抵抗攻击'><span>抵抗攻击</span></h5><p><span>➢ 用户的证实 ➢ 密码、验证码、生物识别……</span></p><p><span>➢ 用户的授权 ➢ 确认用户的操作是在其权限范围</span></p><p><span>➢ 维持数据的保密性 ➢ 给数据和传输过程加密</span></p><p><span>➢ 维持数据的完整性 ➢ MD5码校验</span></p><p><span>➢ 减少暴露 ➢ 关闭无用端口、自启动的服务、无线路由SSID等</span></p><p><span>➢ 限制访问 ➢ 白名单、黑名单</span></p><h5 id='检测攻击'><span>检测攻击</span></h5><p><span>➢ 软件和人结合 ➢ 入侵检测系统 ➢ 安全专家</span></p><p><span>➢ 恢复状态 ➢ 使用“可用性”中的相关策略</span></p><p><span>➢ 攻击者的识别 ➢ 也能震慑潜在的攻击者</span></p><h3 id='可测试性'><span>可测试性</span></h3><h4 id='含义-4'><span>含义</span></h4><h5 id='概述-8'><span>概述</span></h5><p><span>➢ 关注点 ✓ 让软件的bug容易被测试出来 ✓ 验证软件产品与它的需求规格是否匹配（存在不符或缺失） ✓ 使用最小的成本和工作量来验证软件的质量</span></p><p><span>➢ 测试的重要性 ✓ 一般软件项目40%的成本花在测试上 ✓ 大型软件项目出现故障，可能导致严重的后果 ✓ 如果能在体系结构层面提高可测试性，收益巨大</span></p><h5 id='案例'><span>案例</span></h5><p><span>➢ 软件bug引发的重大损失 </span></p><p><span>✓ 1985年，加拿大的Therac-25放射治疗机由于软件Bug而发生 故障，向患者提供了致命的辐射剂量，造成3人死亡，3人严重 受伤。 ✓ 1994年，国航空客A300因软件故障而坠毁，264人丧生 </span></p><p><span>✓ 1999年，软件漏洞导致美国12亿美元的军事卫星发射失败</span></p><p><span>✓ 2013-2016年，日产汽车由于安全气囊感应探测器的软件故障 （软件可能探测不到副驾驶座上的乘客，导致发生事故时安全 气囊无法打开），陆续在全球召回超过450万辆汽车 </span></p><p><span>✓ 2015-2017年，星巴克咖啡多次出现POS系统升级故障无法处 理交易，最多时被迫临时关闭了北美区约60％的门店</span></p><p><span>✓ 2015年，伦敦彭博终端由于软件漏洞宕机，影响超过30万交 易商，迫使政府推迟30亿英镑的债务出售</span></p><p><span>✓ 2018年6月27日，阿里云出现大规模故障，原因为上线自动化 运维系统触发未知Bug，导致部分产品访问链接不通，影响时 间约半小时</span></p><h5 id='可测试性场景'><span>可测试性场景</span></h5><p><span>➢ 刺激源 ✓ 测试可能由不同的角色发起（开发者、单元测试人员、集成测 试人员、系统管理员、用户……）</span></p><p><span>➢ 刺激 ✓ 系统开发到达了里程碑 ✓ 可能是分析/设计/编码/集成阶段的结束，或系统完成开发</span></p><p><span>➢ 制品 ✓ 一个设计、一段代码、整个系统……</span></p><p><span>➢ 环境 ✓ 系统可能处于设计阶段 / 开发阶段 / 部署阶段 / 正常运行时</span></p><p><span>➢ 响应 ✓ 理想的响应是可以进行测试，并且可以观察到测试结果 ✓ 当测试结果无法被观察到时，测试难度很大</span></p><p><span>➢ 响应衡量指标 ✓ 白盒测试中的覆盖率 ✓ 语句覆盖 ✓ 判定覆盖/分支覆盖（判定可能是多个条件组合） ✓ 条件覆盖：覆盖判定中的每个条件 ✓ 路径覆盖、判定条件覆盖、条件组合覆盖…… ✓ 未来继续发现bug的概率</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152219520.png" referrerpolicy="no-referrer" alt="image-20210622152219520"></p><h4 id='提升可测试性的策略'><span>提升可测试性的策略</span></h4><h5 id='概述-9'><span>概述</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152257817.png" referrerpolicy="no-referrer" alt="image-20210622152257817"></p><h5 id='黑盒测试'><span>黑盒测试</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152313011.png" referrerpolicy="no-referrer" alt="image-20210622152313011"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152334740.png" referrerpolicy="no-referrer" alt="image-20210622152334740"></p><h5 id='白盒测试'><span>白盒测试</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152349960.png" referrerpolicy="no-referrer" alt="image-20210622152349960"></p><h5 id='常用的测试工具'><span>常用的测试工具</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152510868.png" referrerpolicy="no-referrer" alt="image-20210622152510868"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152525794.png" referrerpolicy="no-referrer" alt="image-20210622152525794"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152541478.png" referrerpolicy="no-referrer" alt="image-20210622152541478"></p><h3 id='易用性'><span>易用性</span></h3><h4 id='含义-5'><span>含义</span></h4><h5 id='概述-10'><span>概述</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152637405.png" referrerpolicy="no-referrer" alt="image-20210622152637405"></p><h5 id='易用性场景'><span>易用性场景</span></h5><p><span>➢ 刺激源 ✓ 终端用户</span></p><p><span>➢ 刺激 ✓ 终端用户希望学习系统的使用、提高系统使用效率、减少 出错……</span></p><p><span>➢ 制品 ✓ 整个系统</span></p><p><span>➢ 环境 ✓ 系统处于运行时或配置时</span></p><p><span>➢ 响应 ✓ 系统响应用户的要求</span></p><p><span>➢ 响应衡量指标 ✓ 用户完成任务的时间 ✓ 用户出错的次数 ✓ 用户满意度 ✓ 用户操作的成功率</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152903391.png" referrerpolicy="no-referrer" alt="image-20210622152903391"></p><h4 id='提升易用性的策略'><span>提升易用性的策略</span></h4><h5 id='概述-11'><span>概述</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622152942273.png" referrerpolicy="no-referrer" alt="image-20210622152942273"></p><h5 id='运行时策略'><span>运行时策略</span></h5><p><span>➢ 系统猜测用户要完成的任务 ➢ 输入法联想、搜索引擎联想</span></p><p><span>➢ 系统给用户适当的反馈 ➢ 提示拷贝文件所需的剩余时间、浏览器打开页面的进度</span></p><p><span>➢ 系统给用户提供一致的体验 ➢ 鼠标提供DPI调整，适应不同的分辨率</span></p><p><span>➢ 支持撤销操作 ➢ 减少误操作的影响</span></p><h5 id='设计时策略'><span>设计时策略</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622153154926.png" referrerpolicy="no-referrer" alt="image-20210622153154926"></p><h2 id='软件体系结构评估'><span>软件体系结构评估</span></h2><h3 id='体系结构评估'><span>体系结构评估</span></h3><h4 id='定义-5'><span>定义</span></h4><p><span>架构评估是一个开发生命周期活动，多个项目干系人在正式或非正式过程中使用场景等评估技术分析软件架构。</span></p><h4 id='为什么'><span>为什么</span></h4><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622154036436.png" referrerpolicy="no-referrer" alt="image-20210622154036436"></p><p><span>1.越早发现越好，及时止损</span></p><p><span>2.需求验证➢ 架构评估揭示了冲突和权衡，并为协商解决提供了一个论坛</span></p><p><span>3.强制准备审查</span></p><p><span>➢ 许多系统没有一个所有开发人员都能理解的架构。</span>
+<span>在准备评估的过程中会发现很多这样的问题</span></p><p><span>4.改进的架构</span></p><h4 id='评估方法'><span>评估方法</span></h4><p><span>基于场景的架构分析方法（SAAM）</span></p><p><span>这可能是第一个记录在案的软件架构分析方法，最初开发用于分析架构的可修改性。但是，它对于分析架构的任何非功能方面都很有用。它建立在使用利益相关者生成的场景来评估架构的基础上。</span></p><p><span>架构权衡分析方法（ATAM）</span></p><p><span>这是 SAAM 的继任者，并且也得到了广泛使用。</span></p><p><span>➢ 该方法在架构分析中结合了质量属性效用树和质量属性类别。</span></p><p><span>➢ 虽然 SAAM 没有明确解决质量属性之间的相互作用，但 ATAM 却有。</span>
+<span>因此，权衡是关于竞争的质量属性。</span></p><p><span>➢ ATAM 是 SAAM 的一个专长，特别关注可修改性、性能、可用性和安全性。</span></p><hr /><hr /><p><span>SAAM 建立在复杂场景 (SAAMCS) 上</span></p><p><span>该方法将评估场景的复杂性视为最重要的风险评估因素</span></p><p><span>通过域中的集成扩展 SAAM (ESAAMI)</span></p><p><span>这种方法将 SAAM 与特定领域和基于重用的软件开发过程集成在一起。</span></p><p><span>面向演化和可重用性的软件架构分析方法 (SAAMER)</span></p><p><span>这种方法特别关注进化（回顾）和可重用性的质量属性。</span></p><p><span>基于场景的架构再造 (SBAR)</span></p><p><span>该方法利用场景、模拟（simulation）、数学建模和基于经验的推理（基于经验的推理）来评估质量属性。</span>
+<span>该方法还结合了架构设计方法。</span></p><p><span>软件维护的架构级预测（ALPSM）</span></p><p><span>这是使用场景分析可维护性的另一种方法，称为变更场景，代表维护任务</span></p><p><span>软件架构评估模型（SAEM）</span></p><p><span>这种方法是基于正式的和严格的（严格许可的）质量要求。</span></p><h4 id='atam-重点掌握'><span>ATAM-重点掌握</span></h4><h5 id='概述-12'><span>概述</span></h5><p><span>ATAM 是一种帮助项目干系人提出正确问题以发现可能存在问题的架构决策的方法。</span></p><p><span>权衡（折衷）可以明确识别和记录</span></p><p><span> 然后可以将发现的风险作为缓解（实践）活动的重点：例如</span>
+<span>进一步设计、进一步分析、原型制作。</span></p><h5 id='目标'><span>目标</span></h5><p><span>ATAM 的目的不是提供精确的分析。目的是发现架构决策造成的风险。</span></p><p><span>我们想要找到趋势：架构决策和系统属性预测之间的相关性</span></p><p><span>执行 ATAM 评估有很多好处</span></p><p><span>✓已识别的风险</span></p><p><span>✓明确了质量属性要求</span></p><p><span>✓改进的架构文档</span></p><p><span>✓ 架构决策的文件化基础</span></p><p><span>✓增加利益相关者之间的沟通</span></p><p><span>结果是改进的架构。</span></p><h5 id='评估小组'><span>评估小组</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622160154319.png" referrerpolicy="no-referrer" alt="image-20210622160154319"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622160208948.png" referrerpolicy="no-referrer" alt="image-20210622160208948"></p><h5 id='评估阶段'><span>评估阶段</span></h5><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622160330167.png" referrerpolicy="no-referrer" alt="image-20210622160330167"></p><h6 id='atam-phase0'><span>ATAM-Phase0</span></h6><p><span>此阶段在技术评估之前</span></p><p><span>客户和评估团队的一个子集就要评估其体系结构的方法和系统交换理解。</span></p><p><span>制定了执行评估的协议。</span></p><p><span>核心评估团队登场。</span></p><h6 id='atam-phase1'><span>ATAM-Phase1</span></h6><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622162522016.png" referrerpolicy="no-referrer" alt="image-20210622162522016"></p><p><span>专注于获取详细的架构信息并对其进行分析</span></p><p><span>➢涉及一小群主要以技术为导向的项目相干人</span></p><p><span>➢ 以架构为中心</span></p><p><span>➢ 自上而下的分析</span></p><hr /><p><span>1.评估组对 ATAM 进行了概述</span></p><p><span>➢ ATAM 步骤简述</span></p><p><span>➢ 技巧</span></p><p><span>✓ 效用树（效用树）生成</span></p><p><span>✓ 架构启发和分析</span></p><p><span>✓ 场景头脑风暴/映射</span></p><p><span>➢ 输出</span></p><p><span>✓ 架构方法</span></p><p><span>✓ 实用树和场景</span></p><p><span>✓ 风险、非风险、敏感点和权衡</span></p><p>&nbsp;</p><p><span>2.客户描述系统的业务驱动因素。</span></p><p><span>➢ 系统的业务环境</span></p><p><span>➢ 高级功能需求</span></p><p><span>➢ 高级质量属性要求</span></p><p><span>✓ 架构驱动因素：“塑造”架构的质量属性</span></p><p><span>✓ 关键要求：质量属性对系统的成功至关重要</span></p><p>&nbsp;</p><p><span>3.Designer 呈现架构设计的概述。</span></p><p><span>➢ 技术限制，如规定使用的操作系统、硬件或中间件</span></p><p><span>➢ 系统必须与之交互的其他系统</span></p><p><span>➢ 用于解决质量属性要求的架构方法</span></p><p>&nbsp;</p><p><span>4.确定核心架构方法。</span></p><p><span>➢ 客户端-服务器</span></p><p><span>➢ 三层</span></p><p><span>➢ 事件调度机制</span></p><p><span>➢ 发布订阅</span></p><p><span>➢ 冗余硬件</span></p><p><span>评估人员开始确定架构中实现质量属性目标的关键位置。</span></p><p>&nbsp;</p><p><span>5.通过构建效用树来识别、优先排序和优化最重要的质量属性目标。（效用树 是一个自顶向下的工具，用来刻画重要的需求）</span></p><p><span>驱动质量属性是高级节点（通常是性能、可修改性、安全性和可用性）</span></p><p><span>场景是效用树的叶子。</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622161638120.png" referrerpolicy="no-referrer" alt="image-20210622161638120"></p><p><span>输出：特定质量属性的特征和优先级</span></p><p>&nbsp;</p><p><span>刺激、环境、反应</span></p><p><span>➢ 用例场景</span></p><p><span>✓ 远程用户在高峰期通过Web 请求数据库报告，并在5 秒内收到。</span></p><p><span>➢ 增长情景</span></p><p><span>✓ 添加新的数据服务器，将场景 1 中的延迟减少到 1 人周内的 2.5 秒。</span></p><p><span>➢ 探索性场景</span></p><p><span>✓ 一半的服务器在正常运行期间宕机，而不会影响整体系统可用性</span></p><p>&nbsp;</p><p><span>6.评估团队从特定质量属性的角度探索架构方法以识别风险。</span></p><p><span>➢ 确定架构方法</span></p><p><span>➢ 针对最高优先级场景询问质量属性特定问题</span></p><p><span>➢ 识别和记录风险和非风险、敏感点和权衡</span></p><p>&nbsp;</p><p><strong><span>敏感点：</span></strong></p><p><span>风险、权衡、敏感性、非风险</span></p><p><span>➢ 敏感点是一个或多个组件（和/或组件关系）的属性，它对于实现特定的质量属性响应至关重要。</span></p><p><span>✓“虚拟专用网络中的机密级别可能对加密位数很敏感。</span></p><p><strong><span>权衡点：</span></strong></p><p><span>风险、权衡、敏感性、非风险</span></p><p><span>➢权衡点是影响多个属性的属性，是多个属性的敏感点。</span></p><p><span>✓“更改加密级别可能会对安全性和性能产生重大影响。”</span></p><p><strong><span>风险决策：</span></strong></p><p><span>风险、权衡、敏感性、非风险</span></p><p><span>➢风险是一个潜在的有问题的架构决策。</span></p><p><span>✓“虚拟专用网络中的机密级别可能对加密位数很敏感。 </span></p><p><strong><span>无风险决策</span></strong></p><p><span>风险、权衡、敏感性、非风险</span></p><p><span>➢ 非风险是经过分析认为安全的良好架构决策。</span></p><p><span>✓“假设消息到达率为每秒一次，处理时间小于 30 毫秒，并且存在一个更高优先级的进程，那么 1 秒的软截止时间似乎是合理的。”（（假定消息的 到达速率是每秒一次，一次处理的时间小于30ms。如果对一个更 高优先级的处理的响应时间要求是1秒钟，此系统可行）</span></p><h6 id='atam-phase-2'><span>ATAM-Phase 2</span></h6><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622162613061.png" referrerpolicy="no-referrer" alt="image-20210622162613061"></p><p><span>➢ 阶段 2：涉及更多的项目干系人</span></p><p><span>➢ 第二阶段是</span></p><p><span>✓以项目干系人为中心</span></p><p><span>✓ 专注于引出不同项目干系人的观点并验证第一阶段的结果。</span></p><p><span>如何？</span></p><p><span>项目干系人使用便利的头脑风暴过程生成场景。</span>
+<span>效用树叶子上的场景作为示例以促进该步骤。</span></p><p><span>➢ 阶段 2：涉及更多的利益相关者</span></p><p><span>➢ 第二阶段是</span></p><p><span>✓以利益相关者为中心</span></p><p><span>✓ 专注于引出不同利益相关者的观点并验证第一阶段的结果。</span></p><p>&nbsp;</p><ol start='7' ><li><p><span>利益相关者使用便利的头脑风暴过程生成场景。</span></p><p><span>➢ 效用树的叶子处的场景作为示例以促进该步骤。</span></p></li></ol><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622163136345.png" referrerpolicy="no-referrer" alt="image-20210622163136345"></p><ol start='8' ><li><span>确定受上一步生成的场景影响的架构方法。</span></li></ol><p><span>➢ 此步骤使用新场景继续在步骤 6 中开始的分析。</span></p><p><span>➢ 继续识别风险和非风险。</span></p><p><span>➢ 继续注释架构信息。</span></p><ol start='9' ><li><span>概括（概括） ATAM 的所有步骤并呈现 ATAM 输出。</span></li></ol><p><span>➢ 架构方法</span></p><p><span>➢ 实用树</span></p><p><span>➢ 场景</span></p><p><span>➢ 风险与非风险</span></p><p><span>➢ 敏感点和权衡</span></p><p><span>➢ 风险主题</span></p><h6 id='atam-phase-3'><span>ATAM-Phase 3</span></h6><p><span>主要包括为客户编写最终报告，以及评估和 ATAM 材料的质量  </span></p><p><span>➢ 执行摘要</span></p><p><span>➢ ATAM 说明</span></p><p><span>➢ 业务驱动和架构描述</span></p><p><span>➢ 阶段 1 和阶段 2 场景和效用树列表</span></p><p><span>➢ 阶段 1 和阶段 2 分析：架构方法、决策、风险、敏感性、权衡和非风险</span></p><p><span>➢ 风险主题</span></p><p><span>➢ 下一步</span></p><h6 id='总结'><span>总结</span></h6><p><span>ATAM 是</span></p><p><span>✓一种针对多个质量属性评估架构的方法</span></p><p><span>✓ 发现架构决策后果的有效策略</span></p><p><span>✓一种识别趋势的方法，而不是进行精确分析</span></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622163539192.png" referrerpolicy="no-referrer" alt="image-20210622163539192"></p><p><img src="C:\Users\24453\AppData\Roaming\Typora\typora-user-images\image-20210622163436929.png" referrerpolicy="no-referrer" alt="image-20210622163436929"></p><p>&nbsp;</p></div></div>
+</body>
+</html>
